@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
     cs.dependency 'RestKit/ObjectMapping'
     cs.dependency 'RestKit/Network'
     cs.dependency 'RestKit/CoreData'
+    cs.dependency 'RestKit/TestFolder'
   end
 
   s.subspec 'ObjectMapping' do |os|
@@ -43,6 +44,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'CoreData' do |cdos|
     cdos.source_files = 'Code/CoreData.h', 'Code/CoreData/**/*'
+    cdos.frameworks   = 'CoreData'
+    cdos.dependency 'RestKit/ObjectMapping'
+    cdos.private_header_files = 'Code/CoreData/**/*_Private.h'
+  end
+
+  s.subspec 'TestFolder' do |tfs|
+    cdos.source_files = 'Code/TestFolder/**/*'
     cdos.frameworks   = 'CoreData'
     cdos.dependency 'RestKit/ObjectMapping'
     cdos.private_header_files = 'Code/CoreData/**/*_Private.h'
